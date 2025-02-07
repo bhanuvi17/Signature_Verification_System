@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .result {
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .slider-container {
+            margin-bottom: 20px;
+        }
+        .slider-label {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-light bg-dark p-5 rounded">
+        <h1 class="text-center">Signature Verification</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Upload Query Signature:</label>
+                <input type="file" class="form-control" name="query_image" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Upload Reference Signature:</label>
+                <input type="file" class="form-control" name="reference_image" required>
+            </div>
+            
+            <div class="slider-container">
+                <label class="slider-label" for="match_threshold">Set Match Threshold:</label>
+                <input type="range" class="form-range" name="match_threshold" id="match_threshold" min="5" max="20" value="10">
+                <small>Set between 5 and 20, the higher the threshold, the more precise the match.</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Verify Signature</button>
+        </form>
+
+        {% if result %}
+        <div class="mt-4 result {% if result.is_match == 'Genuine Signature' %}bg-success{% else %}bg-danger{% endif %} text-light">
+            <h2>Result:</h2>
+            {% if result.error %}
+            <p>Error: {{ result.error }}</p>
+            {% else %}
+            <p>Good Matches: {{ result.match_count }}</p>
+            <p>Status: {{ result.is_match }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const slider = document.getElementById("match_threshold");
+        slider.oninput = function() {
+            document.querySelector(".slider-label").textContent = "Set Match Threshold: " + this.value;
+        };
+    </script>
+</body>
+</html>
