@@ -10,6 +10,4 @@ numpy==2.2.2
 opencv-python==4.11.0.86
 opencv-python-headless==4.11.0.86
 packaging==24.2
-# Editable install with no version control (Signature_verification==0.0.1)
--e c:\users\bhanu\onedrive\desktop\signature_verification
 Werkzeug==2.2.3
