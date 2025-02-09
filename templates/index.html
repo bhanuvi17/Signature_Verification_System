@@ -12,6 +12,8 @@
         }
         .container {
             margin-top: 50px;
+            max-width: 75%; /* Slightly reduced width */
+            padding: 40px;
         }
         .result {
             padding: 20px;
@@ -22,12 +24,20 @@
         }
         .slider-label {
             font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%; /* Adjust for smaller screens */
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container text-light bg-dark p-5 rounded">
-        <h1 class="text-center">Signature Verification</h1>
+    <div class="container text-light bg-dark p-4 rounded">
+        <h1 class="text-center mb-4">Signature Verification</h1>
         <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Upload Query Signature:</label>
@@ -39,9 +49,9 @@
             </div>
             
             <div class="slider-container">
-                <label class="slider-label" for="match_threshold">Set Match Threshold:</label>
+                <label class="slider-label" for="match_threshold">Set Match Threshold: <span id="slider-value">10</span></label>
                 <input type="range" class="form-range" name="match_threshold" id="match_threshold" min="5" max="20" value="10">
-                <small>Set between 5 and 20, the higher the threshold, the more precise the match.</small>
+                <small>Set between 5 and 20. A higher threshold means stricter matching.</small>
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Verify Signature</button>
@@ -62,8 +72,9 @@
 
     <script>
         const slider = document.getElementById("match_threshold");
+        const sliderValue = document.getElementById("slider-value");
         slider.oninput = function() {
-            document.querySelector(".slider-label").textContent = "Set Match Threshold: " + this.value;
+            sliderValue.textContent = this.value;
         };
     </script>
 </body>
