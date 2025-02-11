@@ -21,6 +21,10 @@ signature_verification/
 │── README.md               # Project info
 │── .gitignore              # Ignore unnecessary files
 ```
+## 🛠 Prerequisites
+Python 3.x installed (recommended: Python 3.8 or later)
+pip installed (comes with Python)
+```
 
 ## 🎯 Technologies Used
 - **Backend:** Flask  
