@@ -1,36 +1,95 @@
-# Signature Verification System
+🏆 Signature Verification System
 
-## Project Overview
+This is a Signature Verification web application built using Flask and OpenCV. The system compares two uploaded signatures and determines whether they match, helping in detecting forged signatures.
 
-This Signature Verification System is designed to verify whether two signatures are from the same person or forged. It uses OpenCV for image processing and feature extraction to compare the query signature against a reference signature. The system employs the Scale-Invariant Feature Transform (SIFT) method to extract distinctive features from the signatures and compares them using the FLANN-based matcher.
+📌 Features
+✅ Compare two signatures for authentication
+✅ Uses SIFT (Scale-Invariant Feature Transform) for feature extraction
+✅ Interactive web interface using Flask
+✅ Deployed on Render
+✅ Supports PNG, JPG, and JPEG formats
+✅ Logs errors for debugging
 
-### Features
-- Upload two signature images (query and reference).
-- Set a match threshold to adjust the sensitivity of the match (between 5 and 20).
-- Displays the number of good matches and the verification result (Genuine or Forged Signature).
-- The system is built using Flask for the web interface, with Bootstrap for styling.
+📂 Project Structure
 
-## Technologies Used
-- **Flask**: A lightweight web framework to build the application.
-- **OpenCV**: For image processing and feature extraction.
-- **NumPy**: For handling image data.
-- **Bootstrap**: For the frontend design.
-- **Python**: Programming language for the backend logic.
+signature_verification/
+│── app.py                     # Flask app (main file)
+│── templates/
+│   ├── index.html             # Frontend UI
+│── requirements.txt           # Dependencies
+│── Procfile                   # Render deployment config
+│── README.md                  # Project info
+│── .gitignore                 # Ignore unnecessary files
 
-## Installation
+🎯 Technologies Used
 
-### Prerequisites
+Backend: Flask
 
-Make sure you have Python 3.x installed on your system. You will also need to install the required Python packages, which are listed in the `requirements.txt` file.
+Computer Vision: OpenCV
 
-### Steps to Install
+Deployment: Render
 
-1. Clone this repository to your local machine:
+🔧 Installation & Setup
 
-   ```bash
-   git clone https://github.com/bhanuvi17/Signature-Verification-System.git
-   cd Signature-Verification-System
+🔹 Clone the Repository
 
-## License
+git clone https://github.com/bhanuvi17/Signature_Verification_System.git
+cd Signature_Verification_System
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+🔹 Create a Virtual Environment
+
+python -m venv venv
+source venv/bin/activate  # On Mac/Linux
+venv\Scripts\activate  # On Windows
+
+🔹 Install Dependencies
+
+pip install -r requirements.txt
+
+🔹 Run the Flask App
+
+python app.py
+
+🔗 Open in your browser: http://127.0.0.1:5000/
+
+🚀 Deploying on Render
+
+1️⃣ Push Code to GitHub
+
+git add .
+git commit -m "Initial commit"
+git push origin main
+
+2️⃣ Deploy on Render:
+
+Go to Render
+
+Click New Web Service
+
+Connect to your GitHub repository
+
+Set Start Command: gunicorn app:app
+
+Click Deploy 🎉
+
+📸 Screenshots
+🔹 Web Interface
+https://github.com/bhanuvi17/Signature_Verification_System/blob/d7e3e1b294f5453dc99cd161c0985ddc6af824e9/Screenshot%202025-02-11%20222058.png
+
+🔹 Verification Result
+https://github.com/bhanuvi17/Signature_Verification_System/blob/d7e3e1b294f5453dc99cd161c0985ddc6af824e9/Screenshot%202025-02-11%20222140.png
+
+
+🏆 Future Enhancements
+✅ Add deep learning-based signature verification
+✅ Improve UI with interactive visualizations
+✅ Store past verification results in a database
+
+📜 License
+This project is open-source under the MIT License.
+
+💡 Need Help?
+Feel free to open an issue or contribute to improve this project! 😊
+
+⭐ If you like this project, give it a star on GitHub! ⭐
+
