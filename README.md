@@ -34,7 +34,7 @@ pip installed (comes with Python)
 ## 🔧 Installation & Setup
 
 ### 🔹 Clone the Repository
-```sh
+```
 git clone https://github.com/bhanuvi17/Signature_Verification_System.git
 cd Signature_Verification_System
 ```
